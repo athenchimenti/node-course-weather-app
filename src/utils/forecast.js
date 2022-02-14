@@ -16,8 +16,9 @@ const forecast = (lat, long, callback) => {
     } else {
       const temp = body.current.temperature;
       const feelsLike = body.current.feelslike;
-      const desc = body.current.weather_descriptions[0];
-      const print = `Currently ${temp} degrees out. It feels like ${feelsLike} and ${desc}.`;
+      const windSpeed = body.current.wind_speed;
+      const desc = body.current.weather_descriptions[0].toLowerCase();
+      const print = `Currently ${temp} degrees out. It feels like ${feelsLike} and ${desc}. With wind at ${windSpeed} km/h.`;
       callback(undefined, print);
     }
   });
